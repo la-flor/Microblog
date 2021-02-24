@@ -1,0 +1,9 @@
+.CreateCommentForm-submit {
+    background-color: rgb(100, 149, 237, 0.6);
+    border-color: rgb(100, 149, 237, 0.6);
+}
+
+.CreateCommentForm-submit:hover {
+    background-color: rgb(100, 149, 237);
+    border-color: rgb(100, 149, 237);
+}
