@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import EditPostForm from "./EditPostForm"
+import EditPostForm from "./EditPostForm";
+import Comments from "./Comments";
 import "./ViewPost.css"
+import CreateCommentForm from "./CreateCommentForm";
 
-const ViewPost = ({ blog, editPost, deletePost }) => {
+const ViewPost = ({ blog, editPost, deletePost, createComment, deleteComment }) => {
     const history = useHistory();
     const { id } = useParams();
     const post = blog.filter(post => post.id === id)[0];
@@ -31,13 +33,13 @@ const ViewPost = ({ blog, editPost, deletePost }) => {
 
     return (
         <div className="ViewPost p-5 my-3">
-            <i class="ViewPost-DeleteIcon pl-2 fas fa-trash-alt" onClick={handleDelete}></i>
+            <i className="ViewPost-DeleteIcon pl-2 fas fa-trash-alt" onClick={handleDelete}></i>
             <i className="ViewPost-EditIcon pr-2 fas fa-edit" onClick={toggleEditPostForm}></i>
-            <h3>{ post.title }</h3>
+            <h2>{ post.title }</h2>
             <p><i>{ post.description }</i></p>
             <p>{ post.body }</p>
 
-            <div className="ViewPost-editor">
+            <div className="ViewPost-editor py-5">
                 {editMode
                     &&
                         <EditPostForm 
@@ -49,6 +51,25 @@ const ViewPost = ({ blog, editPost, deletePost }) => {
                                 deletePost={deletePost}
                         />
                     }
+            </div>
+            <hr />
+            <div className="ViewPost-comments mt-5">
+                <h3>Comments:</h3>
+                <ul>
+                {post.comments
+                    ? (post.comments.map(comment => (
+                            <Comments 
+                                key={comment.id}
+                                postId={post.id}
+                                commentId={comment.id}
+                                comment={comment.comment}
+                                deleteComment={deleteComment} />)))
+                    : (<p>There are no comments for this post yet.  Feel free to contribute below!</p>)
+                    }
+                </ul>
+                <CreateCommentForm 
+                        createComment={createComment}
+                        postId={post.id} />
             </div>
         </div>
     )
