@@ -1,0 +1,8 @@
+.Comments-DeleteIcon {
+    color: rgba(198, 30, 30, 0.6);
+}
+
+.Comments-DeleteIcon:hover {
+    cursor: pointer;
+    color: rgba(198, 30, 30, 0.9);
+}
