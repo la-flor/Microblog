@@ -1,0 +1,17 @@
+.ViewPost-EditIcon {
+    color: rgb(100, 149, 237, 0.6);
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.ViewPost-DeleteIcon {
+    color: rgba(198, 30, 30, 0.6);
+    float: right;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.ViewPost-EditIcon:hover {
+    color: rgb(100, 149, 237);
+}
