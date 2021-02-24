@@ -4,7 +4,7 @@ import Home from "./Home";
 import NewPostForm from "./NewPostForm";
 import ViewPost from "./ViewPost";
 
-const Routes = ({ blog, addPost, editPost, deletePost }) => {
+const Routes = ({ blog, addPost, editPost, deletePost,  createComment, deleteComment }) => {
     return (
         <Switch>
             <Route exact path="/">
@@ -14,7 +14,12 @@ const Routes = ({ blog, addPost, editPost, deletePost }) => {
                 <NewPostForm addPost={addPost} />
             </Route>
             <Route exact path="/:id">
-                <ViewPost blog={blog} editPost={editPost} deletePost={deletePost} />
+                <ViewPost 
+                        blog={blog} 
+                        editPost={editPost} 
+                        deletePost={deletePost}  
+                        createComment={createComment}
+                        deleteComment={deleteComment} />
             </Route>
         </Switch>
     )
