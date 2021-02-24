@@ -19,7 +19,8 @@ const NewPostForm = ({ addPost }) => {
             id: uuidv4(),
             title: formData.title,
             description: formData.description,
-            body: formData.body
+            body: formData.body,
+            comments: []
         })
         goHome();
     }
