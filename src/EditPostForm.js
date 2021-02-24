@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./EditPostForm.css";
 
-const EditPostForm = ({ editPost, id, title, description, body, deletePost }) => {
+const EditPostForm = ({ editPost, id, title, description, body }) => {
     let history = useHistory();
 
     const INITIAL_DATA = {
@@ -66,7 +67,7 @@ const EditPostForm = ({ editPost, id, title, description, body, deletePost }) =>
                     className="form-control"
                 />
                 <br/>
-                <button type="submit" onClick={handleSubmit} className="mr-3 btn btn-success">Save</button>
+                <button type="submit" onClick={handleSubmit} className="EditPostForm-submit mr-3 btn btn-info">Save</button>
             </form>
         </div>
     )

@@ -1,0 +1,9 @@
+.EditPostForm button {
+    background-color: rgb(100, 149, 237, 0.6);
+    border-color: rgb(100, 149, 237, 0.6);
+}
+
+.EditPostForm button:hover, button:active, button:visited {
+    background-color: rgb(100, 149, 237);
+    border-color: rgb(100, 149, 237);
+}
