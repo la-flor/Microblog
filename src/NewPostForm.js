@@ -15,13 +15,14 @@ const NewPostForm = ({ addPost }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        addPost({
-            id: uuidv4(),
-            title: formData.title,
-            description: formData.description,
-            body: formData.body,
-            comments: []
-        })
+        addPost(
+            uuidv4(), 
+            {
+                title: formData.title,
+                description: formData.description,
+                body: formData.body,
+                comments: []
+            })
         goHome();
     }
 

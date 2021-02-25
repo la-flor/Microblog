@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./EditPostForm.css";
 
-const EditPostForm = ({ editPost, id, title, description, body }) => {
+const EditPostForm = ({ editPost, postId, title, description, body }) => {
     let history = useHistory();
 
     const INITIAL_DATA = {
@@ -15,12 +15,13 @@ const EditPostForm = ({ editPost, id, title, description, body }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        editPost({
-            id,
-            title: formData.title,
-            description: formData.description,
-            body: formData.body
-        })
+        editPost(
+            postId,
+            {
+                title: formData.title,
+                description: formData.description,
+                body: formData.body
+            })
         goHome();
     }
 

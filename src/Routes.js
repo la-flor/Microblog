@@ -13,7 +13,7 @@ const Routes = ({ blog, addPost, editPost, deletePost,  createComment, deleteCom
             <Route exact path="/new">
                 <NewPostForm addPost={addPost} />
             </Route>
-            <Route exact path="/:id">
+            <Route exact path="/:postId">
                 <ViewPost 
                         blog={blog} 
                         editPost={editPost} 

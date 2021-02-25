@@ -8,18 +8,18 @@ import CreateCommentForm from "./CreateCommentForm";
 
 const ViewPost = ({ blog, editPost, deletePost, createComment, deleteComment }) => {
     const history = useHistory();
-    const { id } = useParams();
-    const post = blog.filter(post => post.id === id)[0];
+    const { postId } = useParams();
+    const post = blog[postId];
     const [editMode, setEditMode] = useState(false);
 
-    if (!post) {
+    if (!postId) {
         console.error("Blog post id parameter is invalid.")
         returnHome();
     }
 
     function handleDelete(e) {
         e.preventDefault();
-        deletePost(id);
+        deletePost(postId);
         returnHome();
     }
 
@@ -43,7 +43,7 @@ const ViewPost = ({ blog, editPost, deletePost, createComment, deleteComment }) 
                 {editMode
                     &&
                         <EditPostForm 
-                                id={post.id} 
+                                postId={postId} 
                                 title={post.title}
                                 description={post.description}
                                 body={post.body}
@@ -56,20 +56,20 @@ const ViewPost = ({ blog, editPost, deletePost, createComment, deleteComment }) 
             <div className="ViewPost-comments mt-5">
                 <h3>Comments:</h3>
                 <ul>
-                {post.comments
-                    ? (post.comments.map(comment => (
-                            <Comments 
-                                key={comment.id}
-                                postId={post.id}
-                                commentId={comment.id}
-                                comment={comment.comment}
-                                deleteComment={deleteComment} />)))
-                    : (<p>There are no comments for this post yet.  Feel free to contribute below!</p>)
-                    }
+                    {post.comments
+                        ? (post.comments.map(comment => (
+                                <Comments 
+                                    key={comment.id}
+                                    postId={postId}
+                                    commentId={comment.id}
+                                    comment={comment.comment}
+                                    deleteComment={deleteComment} />)))
+                        : (<p>There are no comments for this post yet.  Feel free to contribute below!</p>)
+                        }
                 </ul>
                 <CreateCommentForm 
                         createComment={createComment}
-                        postId={post.id} />
+                        postId={postId} />
             </div>
         </div>
     )
