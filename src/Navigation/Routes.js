@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import NewPostForm from "./NewPostForm";
-import ViewPost from "./ViewPost";
+import Home from "../Home/Home";
+import NewPostForm from "../Posts/NewPostForm";
+import ViewPost from "../Posts/ViewPost";
 
 const Routes = ({ blog, addPost, editPost, deletePost,  createComment, deleteComment }) => {
     return (

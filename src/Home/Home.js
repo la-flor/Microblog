@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 
-import BlogPost from "./BlogPost";
+import BlogPost from "../Posts/BlogPost";
 
 const Home = ({ blog }) => {
 

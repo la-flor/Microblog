@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter } from "react-router-dom";
-import Routes from "./Routes";
-import Header from "./Header";
+import Routes from "./Navigation/Routes";
+import Header from "./Navigation/Header";
 
 function App() {
   const [blog, setBlog] = useState({

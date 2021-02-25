@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import EditPostForm from "./EditPostForm";
-import Comments from "./Comments";
+import Comments from "../Comments/Comments";
 import "./ViewPost.css"
-import CreateCommentForm from "./CreateCommentForm";
+import CreateCommentForm from "../Comments/CreateCommentForm";
 
 const ViewPost = ({ blog, editPost, deletePost, createComment, deleteComment }) => {
     const history = useHistory();
