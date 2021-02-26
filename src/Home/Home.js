@@ -1,15 +1,17 @@
 import React from "react";
 import "./Home.css";
+import { useSelector } from "react-redux";
 
 import BlogPost from "../Posts/BlogPost";
 
-const Home = ({ blog }) => {
+const Home = () => {
+    const blog = useSelector(store => store);
 
     return (
         <div className="Home pt-5">
             {Object.keys(blog).length !== 0
                 ? (Object.keys(blog).map(postId => (
-                    <BlogPost 
+                    <BlogPost
                         key={postId}
                         postId={postId}
                         title={blog[postId].title}

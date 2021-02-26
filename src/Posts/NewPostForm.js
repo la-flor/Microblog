@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import {v4 as uuidv4} from "uuid";
+import { useDispatch } from "react-redux";
 
-const NewPostForm = ({ addPost }) => {
-    let history = useHistory();
+const NewPostForm = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const INITIAL_DATA = {
         title: "",
@@ -15,14 +17,16 @@ const NewPostForm = ({ addPost }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        addPost(
-            uuidv4(), 
-            {
+        dispatch({ 
+            type: "ADD_POST",
+            newPostId: uuidv4(),
+            newPost: {
                 title: formData.title,
                 description: formData.description,
                 body: formData.body,
                 comments: []
-            })
+            }
+        })
         goHome();
     }
 

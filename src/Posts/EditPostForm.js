@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./EditPostForm.css";
+import { useDispatch } from "react-redux";
 
-const EditPostForm = ({ editPost, postId, title, description, body }) => {
-    let history = useHistory();
+const EditPostForm = ({ postId, title, description, body }) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const INITIAL_DATA = {
         title,
@@ -15,13 +17,15 @@ const EditPostForm = ({ editPost, postId, title, description, body }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        editPost(
+        dispatch({
+            type: "UPDATE_POST",
             postId,
-            {
+            updatedPost: {
                 title: formData.title,
                 description: formData.description,
                 body: formData.body
-            })
+            }
+        })
         goHome();
     }
 
