@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import {v4 as uuidv4} from "uuid";
 import { useDispatch } from "react-redux";
+import { addPost } from "../actions/posts";
 
 const NewPostForm = () => {
     const dispatch = useDispatch();
@@ -17,16 +17,11 @@ const NewPostForm = () => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch({ 
-            type: "ADD_POST",
-            newPostId: uuidv4(),
-            newPost: {
-                title: formData.title,
-                description: formData.description,
-                body: formData.body,
-                comments: []
-            }
-        })
+        dispatch(addPost({
+            title: formData.title,
+            description: formData.description,
+            body: formData.body
+        }))
         goHome();
     }
 
@@ -36,7 +31,7 @@ const NewPostForm = () => {
     }
 
     function handleChange(e) {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setFormData(formData => ({
             ...formData,
             [name]: value
@@ -47,7 +42,7 @@ const NewPostForm = () => {
         <div className="NewPostForm">
             <form className="form-group">
                 <label htmlFor="title">Title: </label>
-                <input 
+                <input
                     name="title"
                     type="text"
                     value={formData.title}
@@ -56,16 +51,16 @@ const NewPostForm = () => {
                 />
 
                 <label htmlFor="description">Description: </label>
-                <input 
+                <input
                     name="description"
                     type="text"
                     value={formData.description}
                     onChange={handleChange}
                     className="form-control"
                 />
-                
+
                 <label htmlFor="body">Body: </label>
-                <input 
+                <input
                     name="body"
                     type="text"
                     value={formData.body}

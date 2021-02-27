@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./EditPostForm.css";
 import { useDispatch } from "react-redux";
+import { updatePost } from "../actions/posts";
 
 const EditPostForm = ({ postId, title, description, body }) => {
     const history = useHistory();
@@ -17,15 +18,14 @@ const EditPostForm = ({ postId, title, description, body }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch({
-            type: "UPDATE_POST",
-            postId,
-            updatedPost: {
+        dispatch(updatePost(
+            postId, 
+            {
                 title: formData.title,
                 description: formData.description,
                 body: formData.body
             }
-        })
+        ))
         goHome();
     }
 
@@ -35,7 +35,7 @@ const EditPostForm = ({ postId, title, description, body }) => {
     }
 
     function handleChange(e) {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setFormData(formData => ({
             ...formData,
             [name]: value
@@ -46,7 +46,7 @@ const EditPostForm = ({ postId, title, description, body }) => {
         <div className="EditPostForm">
             <form className="form-group">
                 <label htmlFor="title">Title: </label>
-                <input 
+                <input
                     name="title"
                     type="text"
                     value={formData.title}
@@ -55,23 +55,23 @@ const EditPostForm = ({ postId, title, description, body }) => {
                 />
 
                 <label htmlFor="description">Description: </label>
-                <input 
+                <input
                     name="description"
                     type="text"
                     value={formData.description}
                     onChange={handleChange}
                     className="form-control"
                 />
-                
+
                 <label htmlFor="body">Body: </label>
-                <input 
+                <input
                     name="body"
                     type="text"
                     value={formData.body}
                     onChange={handleChange}
                     className="form-control"
                 />
-                <br/>
+                <br />
                 <button type="submit" onClick={handleSubmit} className="EditPostForm-submit mr-3 btn btn-info">Save</button>
             </form>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import "./CreateCommentForm.css"
 import { useDispatch } from "react-redux";
+import { addComment } from "../actions/posts";
 
 const CreateCommentForm = ({ postId }) => {
     const INITIAL_DATA = {
@@ -21,12 +21,10 @@ const CreateCommentForm = ({ postId }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch({
-            type: "ADD_COMMENT",
+        dispatch(addComment(
             postId,
-            id: uuidv4(),
-            comment: formData.newComment
-        })
+            formData.newComment
+        ))
         setFormData(INITIAL_DATA);
     }
 

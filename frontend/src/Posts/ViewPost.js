@@ -1,38 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import EditPostForm from "./EditPostForm";
 import Comments from "../Comments/Comments";
 import "./ViewPost.css"
 import CreateCommentForm from "../Comments/CreateCommentForm";
+import { fetchPost, removePost, deleteComment } from "../actions/posts";
 
 import { useSelector, useDispatch } from "react-redux";
 
 const ViewPost = () => {
     const { postId } = useParams();
     const history = useHistory();
+    const dispatch = useDispatch();
+    const [isLoading, setLoading] = useState(true);
 
     if (!postId) {
         console.error("Blog post id parameter is invalid.")
         returnHome();
     }
 
+    const post = useSelector(post => post.postsReducer);
+
+    useEffect(() => {
+        setLoading(true);
+        dispatch(fetchPost(postId));
+        setLoading(false);
+    }, [dispatch, postId, isLoading])
+
     function returnHome() {
         history.push(`/`)
     }
 
-    const blog = useSelector(blog => blog);
-    const dispatch = useDispatch();
     function deletePost() {
-        dispatch({ type: 'DELETE_POST', postId });
+        setLoading(true);
+        dispatch(removePost(postId));
+        setLoading(false)
         returnHome();
     }
 
-    function deleteComment(commentId) {
-        dispatch({ type: 'DELETE_COMMENT', postId, commentId: commentId });
+    function removeComment(commentId) {
+        setLoading(true);
+        dispatch(deleteComment(postId, commentId));
+        setLoading(false);
     }
 
-    const post = blog[postId];
     const [editMode, setEditMode] = useState(false);
 
     function toggleEditPostForm() {
@@ -68,8 +80,8 @@ const ViewPost = () => {
                                 key={comment.id}
                                 postId={postId}
                                 commentId={comment.id}
-                                comment={comment.comment}
-                                deleteComment={deleteComment} />)))
+                                comment={comment.text}
+                                deleteComment={removeComment} />)))
                         : (<p>There are no comments for this post yet.  Feel free to contribute below!</p>)
                     }
                 </ul>
