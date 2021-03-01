@@ -7,7 +7,6 @@ import {
 } from "../actions/types";
 
 export default function postsReducer(state = {}, action) {
-    console.log("title reducer ran", state, action);
     switch (action.type) {
         case FETCH_TITLES:
             return action.titles;
@@ -33,13 +32,10 @@ export default function postsReducer(state = {}, action) {
             };
 
         case VOTE:
-            return {
-                ...state,
-                [action.postId]: {
-                    ...action.postId,
-                    votes: action.votes
-                }
-            }
+            return state.map(title => title.id === action.postId
+                ? ({ ...title, votes: action.votes})
+                : title
+            )
 
         default:
             return state;
