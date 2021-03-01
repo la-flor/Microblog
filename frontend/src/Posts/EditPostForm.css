@@ -1,9 +1,14 @@
-.EditPostForm button {
-    background-color: rgb(100, 149, 237, 0.6);
-    border-color: rgb(100, 149, 237, 0.6);
+.EditPostForm-submit {
+    background-color: #383e56;
+    border: white dotted 1px;
 }
 
-.EditPostForm button:hover, button:active, button:visited {
-    background-color: rgb(100, 149, 237);
-    border-color: rgb(100, 149, 237);
+.EditPostForm-submit:hover{
+    background-color: #383e56;
+    border: 1px solid white;
+}
+
+.EditPostForm-submit:enabled {
+    background-color: #383e56;
+    border: 1px solid white;
 }

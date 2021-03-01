@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addPost } from "../actions/posts";
+import "./NewPostForm.css";
 
 const NewPostForm = () => {
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const NewPostForm = () => {
     }
 
     return (
-        <div className="NewPostForm">
+        <div className="NewPostForm p-5 mt-4">
             <form className="form-group">
                 <label htmlFor="title">Title: </label>
                 <input
@@ -49,6 +50,7 @@ const NewPostForm = () => {
                     onChange={handleChange}
                     className="form-control"
                 />
+                <br/>
 
                 <label htmlFor="description">Description: </label>
                 <input
@@ -58,6 +60,7 @@ const NewPostForm = () => {
                     onChange={handleChange}
                     className="form-control"
                 />
+                <br/>
 
                 <label htmlFor="body">Body: </label>
                 <input
@@ -67,9 +70,10 @@ const NewPostForm = () => {
                     onChange={handleChange}
                     className="form-control"
                 />
-                <button type="submit" onClick={handleSubmit} className="btn btn-success">Save</button>
+                <br/>
+                <button type="submit" onClick={handleSubmit} className="NewPostForm-saveBtn btn btn-success">Save</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button onClick={goHome} className="btn btn-warning">Cancel</button>
+                <button onClick={goHome} className="NewPostForm-cancelBtn btn btn-warning">Cancel</button>
             </form>
         </div>
     )

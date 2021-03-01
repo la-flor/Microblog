@@ -7,7 +7,7 @@ import Header from "./Navigation/Header";
 function App() {
 
   return (
-    <div className="App">
+    <div className="App container">
       <Header />
       <BrowserRouter>
         <div className="App-body">

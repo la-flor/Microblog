@@ -1,9 +1,14 @@
 .CreateCommentForm-submit {
-    background-color: rgb(100, 149, 237, 0.6);
-    border-color: rgb(100, 149, 237, 0.6);
+    background-color: #383e56;
+    border: white dotted 1px;
 }
 
 .CreateCommentForm-submit:hover {
-    background-color: rgb(100, 149, 237);
-    border-color: rgb(100, 149, 237);
+    background-color: #383e56;
+    border: 1px solid white;
+}
+
+.CreateCommentForm-submit:enabled {
+    background-color: #383e56;
+    border: 1px solid white;
 }

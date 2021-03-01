@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTitles, changeVote } from "../actions/titles"
-import BlogPost from "../Posts/BlogPost";
+import BlogPost from "./BlogPost";
 
 const Home = () => {
     const [isLoading, setLoading] = useState(true)
@@ -20,7 +19,7 @@ const Home = () => {
     }
 
     return (
-        <div className="Home pt-5">
+        <div className="Home pt-3">
             {isLoading && (<h1>Loading...</h1>)}
             {titles.length
                 ? (titles.map(title => (

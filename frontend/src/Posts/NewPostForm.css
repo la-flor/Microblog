@@ -1,0 +1,24 @@
+.NewPostForm {
+    background-color: #9fb8ad;
+    border: 1px dashed black;
+}
+
+.NewPostForm-saveBtn {
+    background-color: #383e56;
+    border: 1px dashed white;
+}
+
+.NewPostForm-saveBtn:hover {
+    background-color: #383e56;
+    border: 1px solid white;
+}
+
+.NewPostForm-cancelBtn {
+    background-color: #fb743e;
+    border: 1px dashed black;
+}
+
+.NewPostForm-cancelBtn:hover {
+    background-color: #fb743e;
+    border: 1px solid black;
+}

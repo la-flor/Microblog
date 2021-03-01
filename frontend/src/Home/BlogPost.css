@@ -1,0 +1,22 @@
+.BlogPost {
+    background-color: #9fb8ad;
+    border: 1px dashed black;
+}
+
+.BlogPost-thumbsUp {
+    color: rgba(43, 121, 9, 0.7);
+}
+
+.BlogPost-thumbsUp:hover {
+    color: rgba(43, 121, 9);
+    cursor: pointer;
+}
+
+.BlogPost-thumbsDown {
+    color: rgba(255, 47, 0, 0.6);
+}
+
+.BlogPost-thumbsDown:hover {
+    cursor: pointer;
+    color: rgba(255, 47, 0);
+}

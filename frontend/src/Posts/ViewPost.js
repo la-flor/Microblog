@@ -86,7 +86,9 @@ const ViewPost = () => {
                     }
                 </ul>
                 <CreateCommentForm
-                    postId={postId} />
+                    postId={postId}
+                    toggleEditPostForm={toggleEditPostForm}
+                 />
             </div>
         </div>
     )
