@@ -7,7 +7,6 @@ import {
 } from "../actions/types";
 
 export default function postsReducer(state = {}, action) {
-    console.log("reducer ran; state & action", state, action);
     switch (action.type) {
         case GET_POST:
             return action.post;
