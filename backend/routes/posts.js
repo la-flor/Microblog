@@ -20,6 +20,7 @@ const router = new express.Router();
 
 router.get("/", async function (req, res, next) {
   try {
+    debugger;
     const result = await db.query(
       `SELECT p.id,
               p.title,
