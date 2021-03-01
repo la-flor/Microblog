@@ -2,11 +2,12 @@ import {
     FETCH_TITLES,
     ADD_POST,
     DELETE_POST,
-    UPDATE_POST
+    UPDATE_POST,
+    VOTE
 } from "../actions/types";
 
 export default function postsReducer(state = {}, action) {
-    console.log("reducer ran; state & action", state, action);
+    console.log("title reducer ran", state, action);
     switch (action.type) {
         case FETCH_TITLES:
             return action.titles;
@@ -30,6 +31,15 @@ export default function postsReducer(state = {}, action) {
                     comments: state[action.postId].comments
                 }
             };
+
+        case VOTE:
+            return {
+                ...state,
+                [action.postId]: {
+                    ...action.postId,
+                    votes: action.votes
+                }
+            }
 
         default:
             return state;

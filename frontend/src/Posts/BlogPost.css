@@ -2,3 +2,21 @@
     border: 1px solid white;
     width: 100vw;
 }
+
+.BlogPost-thumbsUp {
+    color: rgb(0, 255, 0, 0.6);
+}
+
+.BlogPost-thumbsUp:hover {
+    color: rgb(0, 255, 0);
+    cursor: pointer;
+}
+
+.BlogPost-thumbsDown {
+    color: rgb(255, 0, 0, 0.6);
+}
+
+.BlogPost-thumbsDown:hover {
+    cursor: pointer;
+    color: 	rgb(255, 0, 0)
+}
