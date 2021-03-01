@@ -17,6 +17,13 @@ export function fetchTitles() {
     }
 }
 
+function getTitles(titles) {
+    return {
+        type: FETCH_TITLES,
+        titles
+    }
+}
+
 export function changeVote(postId, direction) {
     return async function (dispatch) {
         try {
@@ -26,13 +33,6 @@ export function changeVote(postId, direction) {
             console.error("An error occured while sending an upVote request to the server.", err);
         }
     };
-}
-
-function getTitles(titles) {
-    return {
-        type: FETCH_TITLES,
-        titles
-    }
 }
 
 function updateVotes(postId, votes) {
