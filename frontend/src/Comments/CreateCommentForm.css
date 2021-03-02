@@ -1,6 +1,6 @@
 .CreateCommentForm-submit {
     background-color: #383e56;
-    border: white dotted 1px;
+    border: 1px dashed white;
 }
 
 .CreateCommentForm-submit:hover {
@@ -10,5 +10,5 @@
 
 .CreateCommentForm-submit:enabled {
     background-color: #383e56;
-    border: 1px solid white;
+    border: 1px dashed white;
 }

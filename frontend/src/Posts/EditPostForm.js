@@ -4,7 +4,7 @@ import "./EditPostForm.css";
 import { useDispatch } from "react-redux";
 import { updatePost } from "../actions/posts";
 
-const EditPostForm = ({ postId, title, description, body, toggleEditPostForm }) => {
+const EditPostForm = ({ postId, title, description, body }) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -26,9 +26,7 @@ const EditPostForm = ({ postId, title, description, body, toggleEditPostForm }) 
                 body: formData.body
             }
         ))
-        debugger;
-        toggleEditPostForm();
-        // goHome();
+        goHome();
     }
 
     function goHome() {
